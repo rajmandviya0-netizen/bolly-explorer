@@ -1,16 +1,67 @@
-# React + Vite
+# 🎬 BollyExplorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Browse Bollywood movies from 2025 and 2026. Search, filter by year and genre, read details, and save a watchlist.
 
-Currently, two official plugins are available:
+**🔗 Live demo: https://bolly-explorer.vercel.app**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- 73 Bollywood movies from 2025 and 2026
+- Live search by movie title
+- Filter by year and by genre
+- Sort by release date
+- Movie details page with release date, genres and cast
+- "More like this": similar movies picked by shared genres
+- Watchlist with a counter in the header
+- Dark and light theme that remembers your choice (no flash on refresh)
+- Posters fetched automatically from Wikipedia, with a colorful fallback if one is missing
+- "Find trailer" button that opens a YouTube search for that movie
+- Back-to-top button and smooth scrolling between pages
+- Responsive layout for phone, tablet and desktop
+- Keyboard focus styles and reduced-motion support
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the ESLint configuration
+- React with Vite
+- React Router (multi-page navigation)
+- Context API (watchlist state)
+- Custom hooks (`useTheme`, `usePoster`)
+- Plain CSS with CSS variables for theming
+- Deployed on Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## What I learned
+
+- Building a multi-page React app with routing
+- Sharing state across pages with Context
+- Theming with CSS variables, `data-theme` and `localStorage`
+- Deriving data (similar movies) instead of storing extra state
+- Fixing a subtle bug where a reused component showed stale data
+- Deploying with Vercel, including a rewrite so page refreshes work on any route
+
+## Run it locally
+
+```bash
+git clone https://github.com/rajmandviya0-netizen/bolly-explorer.git
+cd bolly-explorer
+npm install
+npm run dev
+```
+
+Then open http://localhost:5173
+
+## Project structure
+
+```
+src/
+  components/   Header, MovieCard, SimilarMovies, SearchBar, GenreFilter, ...
+  context/      WatchlistContext
+  data/         movies.js (the movie list)
+  hooks/        useTheme, usePoster
+  pages/        Home, MovieDetails, Watchlist
+  services/     posters.js (Wikipedia poster lookup)
+  utils/        format.js
+```
+
+## Author
+
+Made by Raj.
